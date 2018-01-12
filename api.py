@@ -14,6 +14,7 @@ class AlipayUrlHandler(RequestHandler):
     获取支付宝支付路径
     """
     def post(self, *args, **kwargs):
+        gen_log.info("alipay post")
         order_id = self.get_argument("order_id", "")
         # 创建用于进行支付宝支付的工具对象
         alipay = AliPay(
@@ -46,6 +47,7 @@ class CheckAlipayHandler(RequestHandler):
     """
     def get(self, *args, **kwargs):
         # 创建用于进行支付宝支付的工具对象
+        gen_log.info("check alipay get")
         order_id = self.get_argument("order_id", "")
         alipay = AliPay(
             appid=default_settings.app_id,
