@@ -18,10 +18,10 @@ class AlipayUrlHandler(RequestHandler):
         order_id = self.get_argument("order_id", "")
         # 创建用于进行支付宝支付的工具对象
         alipay = AliPay(
-            appid=default_settings.app_id,
+            appid=default_settings.get('app_id', ''),
             app_notify_url=None,  # 默认回调url
-            app_private_key_path=os.path.join(default_settings.rsb_path, "pkcs8_private.pem"),
-            alipay_public_key_path=os.path.join(default_settings.rsb_path, "alipay_public.pem"),
+            app_private_key_path=os.path.join(default_settings.get('rsb_path', ""), "pkcs8_private.pem"),
+            alipay_public_key_path=os.path.join(default_settings.get('rsb_path', ""), "alipay_public.pem"),
             # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
             sign_type="RSA2",  # RSA 或者 RSA2
             debug=True  # 默认False  配合沙箱模式使用
@@ -50,10 +50,10 @@ class CheckAlipayHandler(RequestHandler):
         gen_log.info("check alipay get")
         order_id = self.get_argument("order_id", "")
         alipay = AliPay(
-            appid=default_settings.app_id,
+            appid=default_settings.get("app_id", ""),
             app_notify_url=None,  # 默认回调url
-            app_private_key_path=os.path.join(default_settings.rsb_path, "pkcs8_private.pem"),
-            alipay_public_key_path=os.path.join(default_settings.rsb_path, "alipay_public.pem"),
+            app_private_key_path=os.path.join(default_settings.get('rsb_path', ""), "pkcs8_private.pem"),
+            alipay_public_key_path=os.path.join(default_settings.get('rsb_path', ""), "alipay_public.pem"),
             # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
             sign_type="RSA2",  # RSA2,官方推荐，配置公钥的时候能看到
             debug=True  # 默认False  配合沙箱模式使用
