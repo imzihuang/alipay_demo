@@ -28,6 +28,7 @@ def api_handlers():
         prefix += '/'
     return [
         (prefix + r'alipay_url', api.AlipayUrlHandler),
+        (prefix + r'check_pay', api.CheckAlipayHandler),
         (prefix + r'alipay_pay', api.AlipayHandler),
         (prefix + r'alipay_test', api.AlipayCallbackHandler),
     ]
