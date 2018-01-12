@@ -11,10 +11,10 @@
                 var req_data = {
                     order_id: order_id,
                 };
-                $.post("/alipay_url", req_data, function (data) {
+                $.post("/alipay/alipay_url", req_data, function (data) {
                     window.open(data.url)
                 });
-                $.get("/check_pay/?order_id=" + order_id, function (data) {
+                $.get("/alipay/check_pay/?order_id=" + order_id, function (data) {
                     if (0 == data.code) {
                         // 支付成功
                         alert("支付成功");
