@@ -20,8 +20,8 @@ class AlipayUrlHandler(RequestHandler):
         alipay = AliPay(
             appid=default_settings.get('app_id', ''),
             app_notify_url=None,  # 默认回调url
-            app_private_key_path=os.path.join(default_settings.get('rsb_path', ""), "pkcs8_private.pem"),
-            alipay_public_key_path=os.path.join(default_settings.get('rsb_path', ""), "alipay_public.pem"),
+            app_private_key_path=os.path.join(os.path.dirname(__file__), "pem/pkcs8_private.pem"),
+            alipay_public_key_path=os.path.join(os.path.dirname(__file__), "pem/alipay_public.pem"),
             # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
             sign_type="RSA2",  # RSA 或者 RSA2
             debug=True  # 默认False  配合沙箱模式使用
