@@ -10,7 +10,7 @@
                 var order_id = "20171123002"
                 var req_data = {
                     order_id: order_id,
-                    csrfmiddlewaretoken: "{{ csrf_token }}"
+                    //csrfmiddlewaretoken: "{{ csrf_token }}"
                 };
                 $.post("/alipay_url", req_data, function (data) {
                     window.open(data.url)
