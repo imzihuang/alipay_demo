@@ -12,7 +12,7 @@
                     order_id: order_id,
                 };
                 $.post("/alipay/alipay_url", req_data, function (data) {
-                    alert(data.url);
+                    alert(data);
                     window.open(data.url);
                 });
                 $.get("/alipay/check_pay?order_id=" + order_id, function (data) {
