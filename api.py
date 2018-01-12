@@ -47,7 +47,7 @@ class CheckAlipayHandler(RequestHandler):
     """
     def get(self, *args, **kwargs):
         # 创建用于进行支付宝支付的工具对象
-        gen_log.info("check alipay get")
+        gen_log.info("check alipay get:%s" %os.path.join(default_settings.get('rsb_path', ""), "pkcs8_private.pem"))
         order_id = self.get_argument("order_id", "")
         alipay = AliPay(
             appid=default_settings.get("app_id", ""),
