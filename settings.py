@@ -16,7 +16,6 @@ default_settings = {
     'exclude_namespaces': [],
     'app_id': '2018011001743278',
     'alipay_url': 'https://openapi.alipaydev.com/gateway.do',
-    'rsb_path': 'pem'
 }
 
 models = []
