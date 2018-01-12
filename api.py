@@ -37,7 +37,7 @@ class AlipayUrlHandler(RequestHandler):
         )
 
         # 让用户进行支付的支付宝页面网址
-        url = default_settings.alipay_url + "?" + order_string
+        url = default_settings.get("alipay_url", "") + "?" + order_string
 
         return self.finish(json.dumps({"code": 0, "message": "请求支付成功", "url": url}))
 
