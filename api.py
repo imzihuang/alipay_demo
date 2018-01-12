@@ -39,7 +39,7 @@ class AlipayUrlHandler(RequestHandler):
         # 让用户进行支付的支付宝页面网址
         url = default_settings.get("alipay_url", "") + "?" + order_string
 
-        return self.finish(json.dumps({"code": 0, "message": "请求支付成功", "url": url}))
+        return self.finish({"code": 0, "message": "请求支付成功", "url": url})
 
 class CheckAlipayHandler(RequestHandler):
     """
@@ -69,7 +69,7 @@ class CheckAlipayHandler(RequestHandler):
             if code == "10000" and trade_status == "TRADE_SUCCESS":
                 # 表示用户支付成功
                 # 返回前端json，通知支付成功
-                return self.finish(json.dumps({"code": 0, "message": "支付成功"}))
+                return self.finish({"code": 0, "message": "支付成功"})
 
             elif code == "40004" or (code == "10000" and trade_status == "WAIT_BUYER_PAY"):
                 # 表示支付宝接口调用暂时失败，（支付宝的支付订单还未生成） 后者 等待用户支付
@@ -80,7 +80,7 @@ class CheckAlipayHandler(RequestHandler):
             else:
                 # 支付失败
                 # 返回支付失败的通知
-                return self.finish(json.dumps({"code": 1, "message": "支付失败"}))
+                return self.finish({"code": 1, "message": "支付失败"})
 
 class AlipayHandler(RequestHandler):
     """
