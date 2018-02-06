@@ -14,7 +14,7 @@ default_settings = {
     'api_key': '',
     'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],
     'exclude_namespaces': [],
-    'app_id': '2018011001743278',
+    'app_id': '2016091300500068',
     'alipay_url': 'https://openapi.alipaydev.com/gateway.do',
 }
 

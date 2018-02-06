@@ -31,7 +31,7 @@ class AlipayUrlHandler(RequestHandler):
         order_string = alipay.api_alipay_trade_page_pay(
             out_trade_no=order_id,
             total_amount=str(0.01),  # 将Decimal类型转换为字符串交给支付宝
-            subject="商贸商城",
+            subject="云计算web个人",
             return_url=None,
             notify_url=None  # 可选, 不填则使用默认notify url
         )
