@@ -94,4 +94,17 @@ class AlipayCallbackHandler(RequestHandler):
     支付宝回调
     """
     def post(self):
+        notify_time = self.get_argument("notify_time", "")
+        notify_type = self.get_argument("notify_type", "")
+        notify_id = self.get_argument("notify_id", "")
+        charset = self.get_argument("charset", "")
+        version = self.get_argument("version", "")
+        sign_type = self.get_argument("sign_type", "")
+        sign = self.get_argument("sign", "")
+        auth_app_id = self.get_argument("auth_app_id", "")
+        trade_no = self.get_argument("trade_no", "")
+
+        gen_log.info("alipay call")
+        gen_log.info("params: %s,%s,%s,%s,%s,%s,%s,%s,%s"%(notify_time, notify_type, notify_id, charset, version, sign_type, sign, auth_app_id, trade_no))
+
         self.finish(json.dumps({'state': 0, 'message': 'ok'}))
